@@ -168,10 +168,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-12-24 13:45:05 / Modified: 17:52:45" itemprop="dateCreated datePublished" datetime="2021-12-24T13:45:05+08:00">2021-12-24</time>
+              <time title="Created: 2021-12-24 13:45:05" itemprop="dateCreated datePublished" datetime="2021-12-24T13:45:05+08:00">2021-12-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-25 09:16:56" itemprop="dateModified" datetime="2021-12-25T09:16:56+08:00">2021-12-25</time>
+              </span>
 
           
 
@@ -188,7 +194,10 @@
 <h2 id="基本调用方法"><a href="#基本调用方法" class="headerlink" title="基本调用方法"></a>基本调用方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cerebro = bt.Cerebro()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加Analyzer容器</span></span><br><span class="line">cerebro.addanalyzer(bt.analyzers.ExistingAnalyzerClasses, _name = <span class="string">&quot;UserDefinedName&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他步骤</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行策略</span></span><br><span class="line">theResult = cerebro.run()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取Analyzer数据</span></span><br><span class="line">theResult[<span class="number">0</span>].UserDefinedName.get_analysis()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="Analyzer自带的类树"><a href="#Analyzer自带的类树" class="headerlink" title="Analyzer自带的类树"></a>Analyzer自带的类树</h2><p>backtrader.Analyzer()是Analyzer基础类。所有其他Analyzers都是Analyzer的子类。已存的类结构树如下所示：</p>
-<p>|—-Analyzer()<br>       |—-Transactions()<br>       |—-TradeAnalyzer()<br>       |—-TimeReturn()<br>       |—-SQN()<br>       |—-SharpeRatio()<br>       |—-Returns()<br>       |—-PyFolio()<br>       |—-PositionsValue()<br>       |—-PeriodStats()<br>       |—-LogReturnsRolling()<br>       |—-DrawDown()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">|----Analyzer()</span><br><span class="line">     |----Transactions()</span><br><span class="line">     |----TradeAnalyzer()</span><br><span class="line">     |----TimeReturn()</span><br><span class="line">     |----SQN()</span><br><span class="line">     |----SharpeRatio()</span><br><span class="line">     |----Returns()</span><br><span class="line">     |----PyFolio()</span><br><span class="line">     |----PositionsValue()</span><br><span class="line">     |----PeriodStats()</span><br><span class="line">     |----LogReturnsRolling()</span><br><span class="line">     |----DrawDown()</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="PyFolio"><a href="#PyFolio" class="headerlink" title="PyFolio"></a>PyFolio</h3>
       
     </div>

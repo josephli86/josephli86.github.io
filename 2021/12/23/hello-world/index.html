@@ -217,7 +217,7 @@
     <div class="post-nav">
       <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/12/24/2021-12-24-Backtrader-Analyzers/" rel="next" title="Backtrader-Analyzers">
+    <a href="/2021/12/24/Backtrader-Analyzers/" rel="next" title="Backtrader-Analyzers">
       Backtrader-Analyzers <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -232,6 +232,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -383,6 +384,28 @@
   
 
   
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '371833077d816bfed415',
+      clientSecret: 'ce6ac3715e1e529153a8e0f815540d16519fe718',
+      repo        : 'https://josephli86.github.io/',
+      owner       : 'josephli86',
+      admin       : ['josephli86'],
+      id          : '44e212c223008b55429667828e6820ef',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>

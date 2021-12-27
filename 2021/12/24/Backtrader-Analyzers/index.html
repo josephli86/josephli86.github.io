@@ -28,7 +28,7 @@
 <meta property="og:description" content="Analyzer提供了记录、分析投资策略的容器。 基本调用方法12345678910111213cerebro &#x3D; bt.Cerebro()# 添加Analyzer容器cerebro.addanalyzer(bt.analyzers.ExistingAnalyzerClasses, _name &#x3D; &quot;UserDefinedName&quot;)# 其他步骤# 执行策略theResult">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-24T05:45:05.000Z">
-<meta property="article:modified_time" content="2021-12-25T03:43:33.000Z">
+<meta property="article:modified_time" content="2021-12-27T09:02:28.000Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="backtrader">
 <meta property="article:tag" content="量化投资">
@@ -183,7 +183,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-25 11:43:33" itemprop="dateModified" datetime="2021-12-25T11:43:33+08:00">2021-12-25</time>
+                <time title="Modified: 2021-12-27 17:02:28" itemprop="dateModified" datetime="2021-12-27T17:02:28+08:00">2021-12-27</time>
               </span>
 
           
@@ -219,7 +219,27 @@
 
 
 
-<h3 id="PyFolio"><a href="#PyFolio" class="headerlink" title="PyFolio"></a>PyFolio</h3>
+<h3 id="PyFolio"><a href="#PyFolio" class="headerlink" title="PyFolio"></a>PyFolio</h3><h2 id="交易的簿记"><a href="#交易的簿记" class="headerlink" title="交易的簿记"></a>交易的簿记</h2><p>接触<code>python</code>的时间不长，目前在<code>backtrader</code>或<code>python</code>环境中尚未发现类似<code>r</code> 中的<code>blotter</code>包，提供的交易簿记功能。因此，自己写一个函数，实现blotter```中的簿记功能。表头设计如下：</p>
+<ul>
+<li>  date:</li>
+<li>  symbol:</li>
+<li>  ohlc:</li>
+<li>  txn_qty: 成交数量</li>
+<li>  txn_price: 成交价</li>
+<li>  txn_fees: 交易费用</li>
+<li>  txn_value: 成交金额</li>
+<li>  pos_qty: 持仓数量</li>
+<li>  pos_avg_cost: 持仓平均成本</li>
+<li>  pos_value: 持仓市值</li>
+<li>  pl_realized: 当日已实现盈利</li>
+<li>  pl: 当日损益。当日损益的计算公式如下：</li>
+</ul>
+<p>$$<br>PL_{t} = PosValue_{t} + TxnValue_{sell} - PosValue_{t-1} - TxnValue_{buy}<br>$$</p>
+<ul>
+<li>  r: 当日收益率</li>
+</ul>
+<p>$$<br>r_{t} = \frac{PL_{t}}{PosValue_{t} + TxnValue_{sell}}<br>$$</p>
+
     </div>
 
     
@@ -238,11 +258,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/12/23/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
-    </a></div>
       <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/12/25/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -321,7 +341,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">基本调用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analyzer%E8%87%AA%E5%B8%A6%E7%9A%84%E7%B1%BB%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">Analyzer自带的类树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PyFolio"><span class="nav-number">2.1.</span> <span class="nav-text">PyFolio</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">基本调用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analyzer%E8%87%AA%E5%B8%A6%E7%9A%84%E7%B1%BB%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">Analyzer自带的类树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PyFolio"><span class="nav-number">2.1.</span> <span class="nav-text">PyFolio</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E6%98%93%E7%9A%84%E7%B0%BF%E8%AE%B0"><span class="nav-number">3.</span> <span class="nav-text">交易的簿记</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -468,7 +488,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
     var gitalk = new Gitalk({
       clientID    : '371833077d816bfed415',
       clientSecret: 'ce6ac3715e1e529153a8e0f815540d16519fe718',
-      repo        : 'https://josephli86.github.io/',
+      repo        : 'https://github.com/josephli86/josephli86.github.io',
       owner       : 'josephli86',
       admin       : ['josephli86'],
       id          : '3106640fa1bdebffa29d9262f344562f',
